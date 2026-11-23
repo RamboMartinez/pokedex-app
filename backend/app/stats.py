@@ -1,6 +1,6 @@
 import math
 
-def calc_stat (base: int, iv: int, ev: int, level: int, nature: int) -> int:
+def calc_stat (base: int, iv: int, ev: int, level: int, nature: float) -> int:
     """Calculate a Pokemon's final stat (any stat except HP)."""
 
     if (iv < 0):
@@ -24,7 +24,7 @@ def calc_stat (base: int, iv: int, ev: int, level: int, nature: int) -> int:
         print("input for Level was higher than maximum. Level set to 100")
         level = 100
 
-    return math.floor(((((2 * base + iv + (ev / 4)) * level) / 100) + 5) * nature)
+    return math.floor(((((2 * base + iv + (ev // 4)) * level) / 100) + 5) * nature)
 
 def calc_health (base: int, iv: int, ev: int, level: int) -> int:
     """Calculate a Pokemon's final stat (any stat except HP)."""
@@ -51,4 +51,4 @@ def calc_health (base: int, iv: int, ev: int, level: int) -> int:
         level = 100
 
         
-    return math.floor(((((2 * base + iv + (ev / 4)) * level) / 100) + level + 10))
+    return math.floor(((((2 * base + iv + (ev // 4)) * level) / 100) + level + 10))
